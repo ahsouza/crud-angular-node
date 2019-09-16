@@ -7,7 +7,9 @@
 - MongoDB
 
 1. Baixe e instale [Node.JS](https://nodejs.org/en/download/)
-1. Baixe e instale [MongoDB](https://www.mongodb.com/download-center/community)
+2. Baixe e instale [MongoDB](https://www.mongodb.com/download-center/community)
+3. Após a instalação, baixe ou clone o repositório atual: https://github.com/ahsouza/crud-angular-node
+4. Entre no projeto raíz e segue as etapas de comandos para execução da aplicação localmente
 
 
 
