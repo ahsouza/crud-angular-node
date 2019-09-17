@@ -1,4 +1,4 @@
-### CRUD com Node.JS integrado a Angular.JS 1.3.x 
+### DEMO projeto de entrevista da empresa ADSOFT
 
 ##### Pre-Requirements
 
