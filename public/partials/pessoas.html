@@ -4,12 +4,17 @@
   </h1>
 </div>
 
-<button class="btn btn-primary" ng-click="incrementa()">
-  Novo
-</button>
-<input ng-model="filtro" type="search" placeholder="Pesquisar por nome">
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+<a id="btnNovo" href="#/pessoa" class="btn btn-primary">Novo Cliente</a>
+<input ng-model="filtro" type="search" placeholder='parte do nome'>
+<p class="text-info" ng-hide="pessoas.length">
+    Não há pessoas cadastrados
+</p>
+<p ng-show="pessoas.length">Clientes cadastrados: {{pessoas.length}}</p>
 
-<p>Contatos cadastrados: {{total}}</p>
+
   <div class="table-responsive">
     <table class="table table-hover">
       <tr>
