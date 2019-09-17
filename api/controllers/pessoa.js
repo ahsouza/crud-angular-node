@@ -1,31 +1,89 @@
-var pessoas = [
-  {_id: 1, nome: 'Aníbal Henrique', email: 'annibalhsouza@gmail.com', endereco: 'Rua Sete De Setembro, 671 - Serra/ES'},
-  {_id: 2, nome: 'Elon Musk', email: 'tesla@spacex.com', endereco: 'Rua Exemplo Tesla - California/EUA'},
-  {_id: 3, nome: 'Tony Stark', email: 'industries@starks.com', endereco: 'Tokyo - 2000'},
-  {_id: 4, nome: 'Marie Cure', email: 'radioactive@cure.com', endereco: 'Russia - 1552'}
-]
+var sanitize = require('mongo-sanitize')
 
-module.exports = function() {
-  var controller = {}
+module.exports = function (app) {
+	var Pessoa = app.models.Pessoa
 
-  controller.listaPessoas = function(req, res) {
-  	res.json(pessoas)
-  }
+	var controller = {};
 
-  controller.getPessoa = function(req, res) {
-  	var idPessoa = req.params.id
+	controller.listaTodos = function(req, res) {
+	  Pessoa.find().exec()
+	    .then(
+		  function(pessoas) {
+			res.json(pessoas)
+		  },
+		  function(erro) {
+			console.error(erro)
+			res.status(500).json(erro)
+		  } 
+		)
+	}
+	
+	controller.obtemPessoa = function(req, res) {
 
-  	var pessoa = pessoas.filter(function(pessoa) {
-  		return pessoa._id == idPessoa
-  	})[0]
+	  console.log('Id do cliente' + req.params.id)
+	  var _id = req.params.id
+	  Pessoa.findById(_id).exec()
+	  .then(
+	    function(pessoa) {
+		  if (!pessoa) throw new Error("Cliente não encontrado")
+		  res.json(pessoa)
+		},
+		function(erro) {
+		  console.log(erro)
+		  res.status(404).json(erro)
+		}
+	  )		
+	}
 
-  	pessoa ? res.json(pessoa) : res.status(404).send('Pessoa não encontrada')
+	// crud-angular-nodejs/api/controllers/pessoa.js
+	controller.removePessoa = function(req, res) {
+		console.log('API: removePessoa: ' + req.params.id);	
+		var _id = sanitize(req.params.id);
+		Pessoa.remove({"_id" : _id}).exec()
+		.then(
+			function() {
+				 res.status(204).end();	
+			}, 
+			function(err) {
+				return console.error(erro);
+			}
+		);
+	};
 
 
-  }
+	controller.salvaPessoa = function(req, res) {
+	  var _id = req.body._id;
+	  var dados = { 
+	  	"nome" : req.body.nome, 
+	  	"email" : req.body.email
+	  };
 
+	  if(_id) {
+	 	 Pessoa.findByIdAndUpdate(_id, dados).exec()
+	 	 .then(
+	 	 	function(pessoa) {
+	 	 		res.json(pessoa);
+	 	 	}, 
+	 	 	function(erro) {
+	 	 		console.error(erro)
+	 	 		res.status(500).json(erro);
+	 	 	}
+	 	 );
 
+	  } else {
+	  	
+	  	Pessoa.create(dados)
+	  	.then(
+	  		function(pessoa) {
+	  			res.status(201).json(pessoa);
+	  		}, 
+	  		function(erro) {
+	  			console.log(erro);
+	  			res.status(500).json(erro);
+	  		}
+	  	);
+	  }
+	};
 
-  return controller;
-
-}
+	return controller;
+};
