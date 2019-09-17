@@ -4,16 +4,23 @@
 	<title>DEMO entrevista AdSoft</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
 
 </head>
-<body>
+<body class= "container" ng-controller="PessoasController">
 
 	<h1>Bem Vindo a DEMO ADSOFT</h1>
+	<div ng-view></div>
 
 
 	<button>Novo</button>	
-	<p>Pessoas cadastradas: 00</p>
+	<p>Pessoas cadastradas: {{total}}</p>
 
 	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular-route/angular-route.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/PessoasController.js"></script>
+	<script src="js/controllers/PessoaController.js"></script>
 </body>
 </html>
