@@ -27,7 +27,7 @@ docker pull tutum/mongodb
 docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongodb
 ```
 
-###### Liste todos containers que ainda não foram executados:
+###### Liste todos containers que ainda não foram executados e memorize seu ID:
 
 ```sh
 docker ps -a
