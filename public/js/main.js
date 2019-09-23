@@ -1,4 +1,4 @@
-angular.module('crud-angular-nodejs', ['ngRoute', 'ngResource'])
+angular.module('crud-angular-nodejs', ['ngRoute', 'ngResource', 'myComponents'])
   .config(function($routeProvider,  $httpProvider) {
 
   	$routeProvider.when('/pessoas', {
