@@ -1,4 +1,4 @@
-angular.module('crud-angular-nodejs').controller('PessoasController', function($scope) {
+angular.module('crud-angular-node').controller('PessoasController', function($scope) {
 
 	$scope.pessoas = [
 	  {

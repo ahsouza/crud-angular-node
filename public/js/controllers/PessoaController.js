@@ -1,4 +1,4 @@
-angular.module('crud-angular-nodejs').controller('PessoaController', function($scope, $routeParams, Pessoa, $rootScope) {
+angular.module('crud-angular-node').controller('PessoaController', function($scope, $routeParams, Pessoa, $rootScope) {
 
   Pessoa.query(function(pessoas) {
     console.log("Lista de clientes")
