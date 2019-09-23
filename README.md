@@ -57,7 +57,7 @@ npm install
 ###### Instalando **Bower**: Gerenciador de dependências Front-End
 ```sh
 
-npm install bower@1.3 -g
+npm install bower -g
 ```
 
 ###### Baixando dependências Front-End
