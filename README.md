@@ -76,3 +76,5 @@ node server.js  |  npm start
 ```sh
 mongo
 ```
+
+Acesse de seu navegador favorito o endereço: http://localhost:3000
