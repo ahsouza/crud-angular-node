@@ -1,8 +1,9 @@
-<h1 class="text-center">Cliente</h1>
+<h1 class="text-center">Pessoa</h1>
 <p id="alerta" ng-show="mensagem.texto">
     {{mensagem.texto}}
 </p>
-<painel titulo="Cadastro de Clientes">
+
+<my-painel titulo="Cadastro de Clientes">
   <form ng-submit="salva()">
 	
 	<div class="form-group">
@@ -12,19 +13,23 @@
 
 	<div class="form-group">
 	  <label for="email">Email</label>
+	  
 	  <div class="input-group">
 		<span class="input-group-addon">@</span>
 		<input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="pessoa.email" required>
 	  </div>
+
 	</div>
+	
 	<div>
-	  <button type="submit" class="btn btn-primary">
+   	  <button type="submit" class="btn btn-primary">
 		Salvar
 	  </button>
 
-	  <a id="botao-voltar" meu-focus evento="pessoaSalvo" href="#/" class="btn btn-default">
+	  <a id="botao-voltar" my-focus evento="pessoaSalvo" href="#/" class="btn btn-default">
 	   Voltar
 	  </a>
 	</div>
+	
   </form>
-</painel>
+</my-painel>
