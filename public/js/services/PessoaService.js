@@ -1,3 +1,3 @@
-angular.module('crud-angular-nodejs').factory('Pessoa', function($resource) { 
+angular.module('crud-angular-node').factory('Pessoa', function($resource) { 
   return $resource('/pessoas/:id')
 })
