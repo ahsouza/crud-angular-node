@@ -1,6 +1,6 @@
 angular.module('crud-angular-nodejs').controller('PessoasController', function($scope) {
 
-	$scope.contatos = [
+	$scope.pessoas = [
 	  {
 		"_id": 1,
 		"nome": "Contato Angular 1",

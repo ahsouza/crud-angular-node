@@ -8,7 +8,7 @@ module.exports = () => {
 
   app.set('port', 3000, () => console.log('Servidor escutando na porta 3000!'))
   app.set('view engine', 'ejs')
-  app.set('views', './app/views')
+  app.set('views', './api/views')
 
   app.use(express.static('./public'))
 
