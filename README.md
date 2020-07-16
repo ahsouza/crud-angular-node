@@ -1,4 +1,4 @@
-### DEMO projeto de entrevista da empresa ADSOFT
+### CRUD exemplo para cadastro de pessoas utilizando Node.JS & Angular.JS persistindo dados em MongoDB
 
 ##### Pre-Requirements
 
