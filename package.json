@@ -21,6 +21,6 @@
     "mongoose-findorcreate": "^0.1.2"
   },
   "devDependencies": {
-    "mongodb": "^1.4.19"
+    "mongodb": "^3.6.1"
   }
 }
